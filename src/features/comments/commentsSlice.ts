@@ -11,14 +11,12 @@ export interface CommentsState {
   items: Comment[];
   loaded: boolean;
   hasError: boolean;
-  visible: boolean;
 }
 
 const initialState: CommentsState = {
   items: [],
   loaded: false,
   hasError: false,
-  visible: true,
 };
 
 const commentsSlice = createSlice({
@@ -37,9 +35,7 @@ const commentsSlice = createSlice({
     setCommentsLoaded(state, action: PayloadAction<boolean>) {
       state.loaded = action.payload;
     },
-    toggleVisible(state) {
-      state.visible = !state.visible;
-    },
+
     clearComments(state) {
       state.items = [];
       state.loaded = false;
@@ -52,7 +48,6 @@ export const {
   setComments,
   setCommentsError,
   setCommentsLoaded,
-  toggleVisible,
   clearComments,
 } = commentsSlice.actions;
 
